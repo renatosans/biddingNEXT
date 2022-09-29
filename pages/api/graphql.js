@@ -24,14 +24,12 @@ const resolvers = {
   }
 }
 
-export const schema = makeExecutableSchema({
-  resolvers,
-  typeDefs,
-})
 
-const handler = createGraphQLHandler({
-  schema
-})
+const apolloServer = new ApolloServer(typeDefs, resolvers);
+
+const handler = (req, res) => {
+  res.send('');
+}
 
 
 export default handler
