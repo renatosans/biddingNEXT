@@ -1,6 +1,8 @@
 import prisma from '../../config/db'
 import { createGraphQLHandler } from "next-graphql"
 import { makeExecutableSchema } from '@graphql-tools/schema'
+// import * from 'graphql'
+// import * from 'apollo-server-micro'
 
 
 const typeDefs = `
