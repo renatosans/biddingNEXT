@@ -1,13 +1,23 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import toast, { Toaster } from 'react-hot-toast'
-import { api, notification } from '../config/defaults'
 
 
-const handleClick = () => {
-  toast.error('Select on of the options above', notification.options);
-}
+const url = '/api/graphql';
+const query = `{
+  allItems {
+    name
+    avgPrice
+    unitOfMeasurement
+  }
+}`
 
+const { mutate } = useSWRConfig()
+const { inventory } = useSWR(url, () => request(url, { query }))
+
+useEffect(() => {
+  // tell all SWRs with this key to revalidate
+  mutate(url)
+})
 
 export default function Home() {
   return (
@@ -18,7 +28,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Toaster/>
         <h1 className={styles.title} onClick={handleClick} >Welcome to Next.js</h1>
 
         <div className={styles.grid}>
