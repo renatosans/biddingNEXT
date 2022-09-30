@@ -1,19 +1,41 @@
-import toast, { Toaster } from 'react-hot-toast'
-import { api, notification } from '../config/defaults'
+import Link from 'next'
 
-
-const changePrice = () => {
-  toast.error('Favor preencher o novo valor', notification.options);
-}
 
 export const ItemCard = ({ item }) => {
 	return (
 		<>
-			<Toaster/>
+			<style jsx>{`
+				.cartItem {
+					display: flex;
+					flex-direction: row;
+					background-color: white;
+				}
 
-			<div className="p-8 border-solid border-2 rounded-lg" onClick={changePrice} >
-				<h2 className="text-2xl font-bold">{item.name}</h2>
-				<p>{item.AvgPrice}</p>
+				.itemImage {
+					border-radius: 7px;
+					width: 95px;
+					height: 95px;
+				}
+			
+				.itemText{
+					width: 250px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			
+				.vertical-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+				}
+			`}</style>
+
+			<div className='cartItem'>
+				<fieldset className='vertical-container' style={{'border': '0'}}>
+					<h2 className='itemText'>{item.name}</h2>
+					<p>Preço Médio: R$ {item.avgPrice}</p>
+				</fieldset>
 			</div>
 		</>
 	)
