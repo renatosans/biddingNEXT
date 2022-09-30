@@ -24,8 +24,10 @@ const resolvers = {
   }
 }
 
-
-const apolloServer = new ApolloServer(typeDefs, resolvers);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers
+});
 
 const handler = (req, res) => {
   res.send('');
