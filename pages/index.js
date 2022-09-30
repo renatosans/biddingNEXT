@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import ItemCard from '../components/ItemCard'
 
 
 const url = '/api/graphql';
@@ -28,18 +29,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title} onClick={handleClick} >Welcome to Next.js</h1>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+        <div className={styles.grid}>{
+            inventory && inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
+        }
         </div>
       </main>
 
