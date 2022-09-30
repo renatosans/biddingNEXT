@@ -1,5 +1,5 @@
-import toast, { Toaster } from "react-hot-toast";
-// import { api, notification } from '../config/defaults.js'
+import toast, { Toaster } from 'react-hot-toast'
+import { api, notification } from '../config/defaults'
 
 
 const changePrice = () => {

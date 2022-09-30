@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import toast, { Toaster } from 'react-hot-toast'
+import { api, notification } from '../config/defaults'
 
 
 const handleClick = () => {
-  toast.error('Select on of the options below');
+  toast.error('Select on of the options above', notification.options);
 }
 
 
