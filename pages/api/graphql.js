@@ -13,7 +13,10 @@ type Item {
 
 type Query {
     allItems: [Item!]!
-}`
+}
+
+# type Mutation {}
+`
 
 
 const resolvers = {
