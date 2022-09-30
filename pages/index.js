@@ -1,10 +1,11 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import useSWR, { useSWRConfig } from 'swr'
+import { request, gql} from 'graphql-request'
 import ItemCard from '../components/ItemCard'
+import styles from '../styles/Home.module.css'
 
 
 const url = '/api/graphql';
-const query = `{
+const query = gql`{
   allItems {
     name
     avgPrice
@@ -23,10 +24,10 @@ useEffect(() => {
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Head>
+      <div className={styles.header}>
         <title>Invitation For Bid</title>
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </div>
 
       <main className={styles.main}>
         <div className={styles.grid}>{
