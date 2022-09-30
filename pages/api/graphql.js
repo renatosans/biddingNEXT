@@ -26,7 +26,6 @@ type Mutation {
 # return authors.join(",")
 `
 
-
 const resolvers = {
   Query: {
     allItems: () => {
@@ -35,14 +34,22 @@ const resolvers = {
   }
 }
 
-const server = new ApolloServer({
+const apolloServer = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
 });
 
-const handler = (req, res) => {
-  res.send('');
+const startServer = apolloServer.start();
+
+export default async function handler(req, res) {
+  await startServer;
+  await apolloServer.createHandler({
+    path: "/api/graphql",
+  })(req, res);
 }
 
-
-export default handler
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
