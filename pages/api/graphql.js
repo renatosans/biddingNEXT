@@ -15,7 +15,15 @@ type Query {
     allItems: [Item!]!
 }
 
-# type Mutation {}
+type Mutation {
+  createItem(id: ID!, name: String!, avgPrice: Float!): Item!
+  # deleteItem
+  # updateItem
+}
+
+
+# var authors = ['some author', 'another author', 'last author']
+# return authors.join(",")
 `
 
 
