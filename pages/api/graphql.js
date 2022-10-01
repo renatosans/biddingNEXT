@@ -20,10 +20,6 @@ type Mutation {
   # deleteItem
   # updateItem
 }
-
-
-# var authors = ['some author', 'another author', 'last author']
-# return authors.join(",")
 `
 
 const resolvers = {
