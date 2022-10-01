@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import ItemCard from '../components/ItemCard'
+import { ItemCard } from '../components/ItemCard'
 import styles from '../styles/Home.module.css'
 
 
@@ -19,7 +19,7 @@ const query = `
 }`
 
 export default function Home() {
-  const { inventory } = useSWR(url, fetcher2)
+  const { data: inventory } = useSWR(query, fetcher2)
   
   return (
     <div className={styles.container}>
@@ -28,16 +28,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </div>
 
-      <main className={styles.main}>
+      <h1>GraphQL</h1>
+      <pre>{JSON.stringify(inventory, null, 2)}</pre>
         <div className={styles.grid}>{
             inventory && inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
         }
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <p>Projeto desenvolvido utilizando NEXTjs</p>
-      </footer>
     </div>
   )
 }
