@@ -1,21 +1,25 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import ItemCard from '../components/ItemCard'
+import styles from '../styles/Home.module.css'
 
 
-const url = '/api/graphql';
-const query = `{
+// const fetcher = () => request(url, query)
+const fetcher2 = () => { return axios.post(url, { query }).then((res) => res.data) }
+
+
+const url = '/api/graphql'
+const query = `
   query {
     allItems {
       name
       avgPrice
       unitOfMeasurement
-    }  
   }
 }`
 
 export default function Home() {
-  const { inventory } = useSWR(url, () => request(url, { query }))
+  const { inventory } = useSWR(url, fetcher2)
   
   return (
     <div className={styles.container}>
@@ -32,7 +36,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <p>Powered by VERCEL</p>
+        <p>Projeto desenvolvido utilizando NEXTjs</p>
       </footer>
     </div>
   )
