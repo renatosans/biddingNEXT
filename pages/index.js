@@ -1,27 +1,30 @@
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR from 'swr'
+import axios from 'axios'
+import { useEffect } from 'react'
 import { request, gql} from 'graphql-request'
 import ItemCard from '../components/ItemCard'
 import styles from '../styles/Home.module.css'
 
 
 const url = '/api/graphql';
-const query = gql`{
-  allItems {
-    name
-    avgPrice
-    unitOfMeasurement
+const query = `{
+  query {
+    allItems {
+      name
+      avgPrice
+      unitOfMeasurement
+    }  
   }
 }`
 
-const { mutate } = useSWRConfig()
-const { inventory } = useSWR(url, () => request(url, { query }))
-
-useEffect(() => {
-  // tell all SWRs with this key to revalidate
-  mutate(url)
-})
-
 export default function Home() {
+  const { inventory } = useSWR(url, () => request(url, { query }))
+
+  useEffect(() => {
+    // tell all SWRs with this key to revalidate
+    mutate(url)
+  })
+  
   return (
     <div className={styles.container}>
       <div className={styles.header}>
