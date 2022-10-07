@@ -36,21 +36,19 @@ export default function Home() {
   }
 
   return (
-    <>{
-        //<Carousel responsive={responsive}>
-        //  <img src="images/bidding1.png"></img>
-        //  <img src="images/bidding2.png"></img>
-        //  <img src="images/bidding3.png"></img>
-        //</Carousel>
+    <>
+      <div>{
+        (inventory) ?
+        <Carousel deviceType="desktop" responsive={responsive}>{
+          inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
+        }
+        </Carousel> :
+        <p>No Items found</p>  
       }
+      </div>
 
       <h1>GraphQL</h1>
       <pre>{JSON.stringify(inventory, null, 2)}</pre>
-        <div>{
-            inventory && inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
-        }
-        </div>
-
     </>
   )
 }
