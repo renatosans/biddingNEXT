@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
+import Carousel from 'react-multi-carousel'
 import { ItemCard } from '../components/ItemCard'
-import styles from '../styles/Home.module.css'
 
 
 // const fetcher = () => request(url, query)
@@ -22,11 +22,19 @@ export default function Home() {
   const { data: inventory } = useSWR(query, fetcher2)
   
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.header}>
         <title>Invitation For Bid</title>
         <link rel="icon" href="/favicon.ico" />
       </div>
+
+      <Carousel>
+        <img src={inventory.data.allItems[0].image}></img>
+        <img src={inventory.data.allItems[1].image}></img>
+        <img src={inventory.data.allItems[2].image}></img>
+        <img src={inventory.data.allItems[3].image}></img>
+        <img src={inventory.data.allItems[4].image}></img>
+      </Carousel>
 
       <h1>GraphQL</h1>
       <pre>{JSON.stringify(inventory, null, 2)}</pre>
@@ -35,6 +43,6 @@ export default function Home() {
         }
         </div>
 
-    </div>
+    </>
   )
 }
