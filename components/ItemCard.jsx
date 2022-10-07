@@ -20,6 +20,8 @@ export const ItemCard = ({ item }) => {
 				}
 
 				.itemText{
+					color: white;
+					text-shadow: black 0.1em 0.1em 0.1em;
 					width: 300px;
 					white-space: nowrap;
 					overflow: hidden;
@@ -39,8 +41,8 @@ export const ItemCard = ({ item }) => {
 				<img className='itemImage' src={item.image} ></img>
 				<fieldset className='vertical-container' style={{'border': '0'}}>
 					<h2 className='itemText'>{item.name}</h2>
-					<p>Preço Médio: R$ {item.avgPrice}</p>
-					<p>{item.description}</p>
+					<p className='itemText'>Preço Médio: R$ {item.avgPrice}</p>
+					<p className='itemText'>{item.description}</p>
 				</fieldset>
 			</div>
 		</>
