@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import axios from 'axios'
 import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 import { ItemCard } from '../components/ItemCard'
 
 
@@ -27,7 +28,7 @@ export default function Home() {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 4
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -39,11 +40,11 @@ export default function Home() {
     <>
       <div>{
         (inventory) ?
-        <Carousel deviceType="desktop" responsive={responsive}>{
+        <Carousel responsive={responsive}>{
           inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
         }
         </Carousel> :
-        <p>No Items found</p>  
+        <p>No items found</p>
       }
       </div>
 
