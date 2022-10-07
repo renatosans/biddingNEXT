@@ -34,6 +34,7 @@ export const ItemCard = ({ item }) => {
 			<div className='cartItem'>
 				<fieldset className='vertical-container' style={{'border': '0'}}>
 					<h2 className='itemText'>{item.name}</h2>
+					<img className='itemImage' src={item.image} ></img>
 					<p>Preço Médio: R$ {item.avgPrice}</p>
 				</fieldset>
 			</div>

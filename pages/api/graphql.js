@@ -3,10 +3,14 @@ import { ApolloServer, gql } from 'apollo-server-micro'
 
 
 const typeDefs = gql`
+
 type Item {
     id: ID!
     name: String!
+    description: String
     avgPrice: Float!
+    image: String
+    banner: String
     unitOfMeasurement: String!
     itemGroup: Int
 }
