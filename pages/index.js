@@ -23,10 +23,21 @@ const query = `{
 
 export default function Home() {
   const { data: inventory } = useSWR(query, fetcher2)
-  
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  }
+
   return (
     <>{
-        //<Carousel responsive={3}>
+        //<Carousel responsive={responsive}>
         //  <img src="images/bidding1.png"></img>
         //  <img src="images/bidding2.png"></img>
         //  <img src="images/bidding3.png"></img>

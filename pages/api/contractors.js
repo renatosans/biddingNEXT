@@ -8,7 +8,7 @@ const getContractors = (req, res) => {
 }
 
 const insertContractor = (req, res) => {
-	const { id, companyName, contactPerson, email } = req.body;
+	// const { id, companyName, contactPerson, email } = req.body;
 
 	prisma.contractor.create({ data: req.body })
 	.then((result) => res.send(result))

@@ -21,8 +21,8 @@ type Query {
 
 type Mutation {
   createItem(id: ID!, name: String!, avgPrice: Float!): Item!
-  # deleteItem
-  # updateItem
+  # deleteItem(id: ID!)
+  # updateItem(id: ID!)
 }
 `
 

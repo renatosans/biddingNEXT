@@ -8,7 +8,7 @@ const getItems = (req, res) => {
 }
 
 const insertItem = (req, res) => {
-	// const { id, name, AvgPrice, unitOfMeasurement, ItemGroup } = req.body;
+	// const { id, name, description, AvgPrice, image, banner, unitOfMeasurement, ItemGroup } = req.body;
 
 	prisma.item.create({ data: req.body })
 	.then((result) => res.send(result))
