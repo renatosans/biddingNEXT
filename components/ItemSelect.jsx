@@ -13,8 +13,7 @@ const query = `{
 `
 
 const Delete = (props) => {
-    const [mutationQuery, setMutationQuery] = useState(`mutation { deleteItem(id: ${props.id}) }`)
-    const { data: deletedId } = useSWR(mutationQuery, fetcher2)
+    const { data: deletedId } = useSWR(`mutation { deleteItem(id: ${props.id}) }`, fetcher2)
 
     return ( <> <p hidden>Item {deletedId} deleted</p> </> )
 }
