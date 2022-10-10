@@ -49,9 +49,9 @@ export default function Home() {
 
       <div>{
         (inventory) ?
-        <Carousel responsive={responsive}>{
-          inventory.data.allItems.map( (item, index) => <ItemCard item={item} index={index} parentRef={{handleClick}} /> )
-        }
+        <Carousel responsive={responsive}>{  inventory.data.allItems.map(
+            (item, index) => <ItemCard item={item} index={index} parentRef={{handleClick}} key={item.id} />
+        )}
         </Carousel> :
         <p>No items found</p>
       }
