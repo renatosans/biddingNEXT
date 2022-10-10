@@ -1,7 +1,11 @@
 import React from 'react'
 
 
-export const ItemCard = ({ item }) => {
+export const ItemCard = ({ item, index, parentRef }) => {
+	const onClick = (e) => {
+		parentRef.handleClick(index)
+	}
+
 	return (
 		<>
 			<style jsx>{`
@@ -37,7 +41,7 @@ export const ItemCard = ({ item }) => {
 				}
 			`}</style>
 
-			<div className='card'>
+			<div className='card' onClick={onClick} >
 				<img className='itemImage' src={item.image} ></img>
 				<fieldset className='vertical-container' style={{'border': '0'}}>
 					<h2 className='itemText'>{item.name}</h2>

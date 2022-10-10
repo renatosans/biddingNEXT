@@ -36,6 +36,10 @@ export default function Home() {
     }
   }
 
+  const handleClick = (itemIndex) => {
+    setCurrentItem(itemIndex)
+  }
+
   return (
     <>
       <div>
@@ -46,7 +50,7 @@ export default function Home() {
       <div>{
         (inventory) ?
         <Carousel responsive={responsive}>{
-          inventory.data.allItems.map( (item) => <ItemCard item={item} key={item.id} /> )
+          inventory.data.allItems.map( (item, index) => <ItemCard item={item} index={index} parentRef={{handleClick}} /> )
         }
         </Carousel> :
         <p>No items found</p>
