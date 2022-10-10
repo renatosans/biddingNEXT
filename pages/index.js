@@ -1,17 +1,14 @@
 import useSWR from 'swr'
-import axios from 'axios'
 import { useState } from 'react'
+import { fetcher2 } from '../config/defaults'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { ItemCard } from '../components/ItemCard'
+import { ItemSelect } from '../components/ItemSelect'
 import { ItemDetails } from '../components/ItemDetails'
 
 
-// const fetcher = () => request(url, query)
-const fetcher2 = () => { return axios.post(url, { query }).then((res) => res.data) }
-
-
-const url = '/api/graphql'
+// const url = '/api/graphql'
 const query = `{
     allItems {
       name
@@ -41,6 +38,7 @@ export default function Home() {
 
   return (
     <>
+      <ItemSelect></ItemSelect>
       <div>{
         (inventory) ?
         <Carousel responsive={responsive}>{
