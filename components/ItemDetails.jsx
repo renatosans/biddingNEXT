@@ -28,21 +28,20 @@ export const ItemDetails = ({item}) => {
                 position: absolute;
                 display: flex;
                 flex-direction: row;
-                width: 80%;
                 margin: 100px;
                 z-index: 999;
             }
 
             .title {
                 font-size: 50px;
-                color: #ffc2ad;
-                text-shadow: red 0.1em 0.1em 0.1em;
+                color: #FFCCCC;
+                text-shadow: red 0.2em 0.2em 0.2em;
             }
   
             .description {
                 font-size: 22px;
-                color: #ffffff;
-                text-shadow: 0 0 0.2em rgb(108, 161, 197), 0 0 0.2em rgb(108, 161, 197),0 0 0.2em rgb(108, 161, 197);
+                color: #FFFFFF;
+                text-shadow: blue 0.2em 0.2em 0.2em;
             }
         `}</style>
 
