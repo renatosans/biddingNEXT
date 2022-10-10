@@ -38,7 +38,11 @@ export default function Home() {
 
   return (
     <>
-      <ItemSelect></ItemSelect>
+      <div>
+        <p><b>FIQUE A VONTADE PARA RETIRAR DE NOSSO SITE OS SERVIÇOS QUE ACHAR INCONVENIENTE</b></p>
+        <ItemSelect></ItemSelect>
+      </div>
+
       <div>{
         (inventory) ?
         <Carousel responsive={responsive}>{

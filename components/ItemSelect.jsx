@@ -26,6 +26,7 @@ export const ItemSelect = () => {
                 <option value={0} key={0} >No items found</option>
             }
             </select>
+            <button>Retirar do Site</button>
         </>
     )
 }
