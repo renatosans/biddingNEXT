@@ -3,26 +3,26 @@ import { useState } from 'react'
 import { fetcher2 } from '../config/defaults'
 
 
-const query1 = `{
+const query = `{
     allItems {
+      id
       name
-      avgPrice
     }
-}
-`
-const query2 = `{
-    mutation {
-        deleteItem(id: 6)
-    }        
 }
 `
 
 export const ItemSelect = () => {
     const [selected, setSelected] = useState(0);
-    const { data: inventory } = useSWR(query1, fetcher2)
+    const { data: inventory } = useSWR(query, fetcher2)
 
     const deleteItem = () => {
-        console.log(selected)
+        const mutationQuery = `{
+            mutation {
+                deleteItem(id: ${selected})
+            }
+        }`
+
+        console.log(mutationQuery)
     }
 
 	return (
