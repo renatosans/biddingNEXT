@@ -1,5 +1,6 @@
 import useSWR from 'swr'
-import { useState } from 'react'
+import ReactDom from 'react-dom';
+import React, { useState } from 'react'
 import { fetcher2 } from '../config/defaults'
 
 
@@ -11,18 +12,24 @@ const query = `{
 }
 `
 
+const Delete = (props) => {
+    const [mutationQuery, setMutationQuery] = useState(`mutation { deleteItem(id: ${props.id}) }`)
+    const { data: deletedId } = useSWR(mutationQuery, fetcher2)
+
+    return ( <> <p hidden>Item {deletedId} deleted</p> </> )
+}
+
+
 export const ItemSelect = () => {
     const [selected, setSelected] = useState(0);
     const { data: inventory } = useSWR(query, fetcher2)
 
     const deleteItem = () => {
-        const mutationQuery = `{
-            mutation {
-                deleteItem(id: ${selected})
-            }
-        }`
+        const root = ReactDom.createRoot(document.getElementById('container'));
 
-        console.log(mutationQuery)
+		// const message = 'Deseja realmente excluir o item ?';
+        const deleteSelected = React.createElement(Delete, {id: selected}, null)
+        root.render(deleteSelected);
     }
 
 	return (
