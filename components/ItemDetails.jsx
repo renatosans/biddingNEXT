@@ -28,9 +28,8 @@ export const ItemDetails = ({item}) => {
                 position: absolute;
                 display: flex;
                 flex-direction: row;
-                top: 25%;
-                left: 5%;
                 width: 80%;
+                margin: 100px;
                 z-index: 999;
             }
 

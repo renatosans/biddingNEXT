@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import axios from 'axios'
+import { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { ItemCard } from '../components/ItemCard'
@@ -25,6 +26,7 @@ const query = `{
 
 export default function Home() {
   const { data: inventory } = useSWR(query, fetcher2)
+  const [currentItem, setCurrentItem] = useState(0);
 
   const responsive = {
     desktop: {
@@ -49,8 +51,12 @@ export default function Home() {
       }
       </div>
 
-      <h1>GraphQL</h1>
-      <pre>{JSON.stringify(inventory, null, 2)}</pre>
+      <div>{
+        (inventory) ?
+        <ItemDetails item={inventory.data.allItems[currentItem]} /> :
+        <p>No items found</p>
+      }
+      </div>
     </>
   )
 }

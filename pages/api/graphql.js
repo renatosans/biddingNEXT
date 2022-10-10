@@ -20,9 +20,9 @@ type Query {
 }
 
 type Mutation {
-  createItem(id: ID!, name: String!, avgPrice: Float!): Item!
-  # deleteItem(id: ID!)
-  # updateItem(id: ID!)
+  # createItem(id: ID!, name: String!, avgPrice: Float!): Item!
+  deleteItem(id: Int!): Int
+  # updateItem(id: Int!): Int
 }
 `
 
@@ -31,6 +31,15 @@ const resolvers = {
     allItems: () => {
       return prisma.item.findMany();
     }
+  },
+
+  Mutation: {
+    deleteItem: async (parent, args) => {
+      await prisma.item.delete({
+        where: { id: args.id },
+      })
+      return args.id;
+    },
   }
 }
 
