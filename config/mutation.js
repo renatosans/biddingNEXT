@@ -6,8 +6,9 @@ const headers = {
     "content-type": "application/json",
 }
 
-const mutation = (query) => {
+const mutation = (operation, query) => {
     const graphqlQuery = {
+        "operationName": operation,
         "mutation": query,
         "variables": {}
     }
