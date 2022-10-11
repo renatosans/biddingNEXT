@@ -22,7 +22,7 @@ const query = `{
 `
 
 export default function Home() {
-  const { data: inventory, error, isValidating, mutate }  = useSWR(query, fetcher2)
+  const { data: inventory, error, isValidating, mutate } = useSWR(query, fetcher2)
   const [currentItem, setCurrentItem] = useState(0);
 
   const responsive = {

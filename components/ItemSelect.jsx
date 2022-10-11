@@ -14,7 +14,7 @@ const query = `{
 
 export const ItemSelect = ({parentRef}) => {
     const [selected, setSelected] = useState(0);
-    const { data: inventory } = useSWR(query, fetcher2)
+    const { data: inventory, error, isValidating, mutate } = useSWR(query, fetcher2)
 
     const deleteItem = () => {
         // const message = 'Deseja realmente excluir o item ?';
@@ -23,7 +23,8 @@ export const ItemSelect = ({parentRef}) => {
         .then((response) => console.log(response.data))
         .catch((error) => console.error(error))
 
-        parentRef.mutate()
+        // this.mutate() // atualiza as opções do dropdown
+        parentRef.mutate() // atualiza o componente pai
     }
 
 	return (
