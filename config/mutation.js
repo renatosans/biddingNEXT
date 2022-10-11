@@ -1,19 +1,18 @@
 import axios from 'axios'
 
 
-const endpoint = '/api/graphql';
-const headers = {
-    "content-type": "application/json",
-}
-
-const mutation = (operation, query) => {
-    const graphqlQuery = {
-        "operationName": operation,
-        "mutation": query,
-        "variables": {}
+const mutation = (query) => {
+    const options = {
+        method: 'POST',
+        url: '/api/graphql',
+        headers: {
+          Accept: '*/*',
+          'Content-Type': 'application/json',
+        },
+        data: `{"query": "mutation { ${query} }"}`
     }
 
-    return axios.post(endpoint, graphqlQuery, headers)
+    return axios.request(options)
 }
 
 export { mutation }

@@ -18,7 +18,10 @@ export const ItemSelect = () => {
 
     const deleteItem = () => {
         // const message = 'Deseja realmente excluir o item ?';
-        const response = mutation('deleteItem',`{ deleteItem(id: ${selected}) }`)
+
+        mutation(`deleteItem(id: ${selected})`)
+        .then((response) => console.log(response.data))
+        .catch((error) => console.error(error))
     }
 
 	return (
