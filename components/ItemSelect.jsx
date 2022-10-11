@@ -20,11 +20,11 @@ export const ItemSelect = ({parentRef}) => {
         // const message = 'Deseja realmente excluir o item ?';
 
         mutation(`deleteItem(id: ${selected})`)
-        .then((response) => console.log(response.data))
+        .then( (response) => {
+            mutate() // atualiza as opções do dropdown
+            parentRef.mutate() // atualiza o componente pai
+        })
         .catch((error) => console.error(error))
-
-        // this.mutate() // atualiza as opções do dropdown
-        parentRef.mutate() // atualiza o componente pai
     }
 
 	return (
