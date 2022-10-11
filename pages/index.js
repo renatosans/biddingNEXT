@@ -22,7 +22,7 @@ const query = `{
 `
 
 export default function Home() {
-  const { data: inventory } = useSWR(query, fetcher2)
+  const { data: inventory, error, isValidating, mutate }  = useSWR(query, fetcher2)
   const [currentItem, setCurrentItem] = useState(0);
 
   const responsive = {
@@ -45,7 +45,7 @@ export default function Home() {
       <div id="container"></div>
       <div>
         <p><b>FIQUE A VONTADE PARA RETIRAR DE NOSSO SITE OS SERVIÇOS QUE ACHAR INCONVENIENTE</b></p>
-        <ItemSelect></ItemSelect>
+        <ItemSelect parentRef={{mutate}} ></ItemSelect>
       </div>
 
       <div>{

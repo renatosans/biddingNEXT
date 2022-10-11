@@ -12,7 +12,7 @@ const query = `{
 }
 `
 
-export const ItemSelect = () => {
+export const ItemSelect = ({parentRef}) => {
     const [selected, setSelected] = useState(0);
     const { data: inventory } = useSWR(query, fetcher2)
 
@@ -22,6 +22,8 @@ export const ItemSelect = () => {
         mutation(`deleteItem(id: ${selected})`)
         .then((response) => console.log(response.data))
         .catch((error) => console.error(error))
+
+        parentRef.mutate()
     }
 
 	return (
