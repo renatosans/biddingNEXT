@@ -11,7 +11,8 @@ type Contractor {
     logoImage: String
     imgFormat: String
 }
-type Query {
+
+extend type Query {
     allContractors: [Contractor!]!
 }
 `

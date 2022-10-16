@@ -13,9 +13,11 @@ type Item {
     unitOfMeasurement: String!
     itemGroup: Int
 }
-type Query {
+
+extend type Query {
     allItems: [Item!]!
 }
+
 type Mutation {
   # createItem(id: ID!, name: String!, avgPrice: Float!): Item!
   deleteItem(id: Int!): Int
