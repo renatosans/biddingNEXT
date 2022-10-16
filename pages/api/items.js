@@ -1,4 +1,4 @@
-import prisma from '../../config/db'
+import prisma from '../../src/utils/connection'
 
 
 const getItems = (req, res) => {

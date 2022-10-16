@@ -1,11 +1,11 @@
 import useSWR from 'swr'
 import { useState } from 'react'
-import { fetcher2 } from '../config/defaults'
+import { fetcher2 } from '../src/utils/defaults'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { ItemCard } from '../components/ItemCard'
-import { ItemSelect } from '../components/ItemSelect'
-import { ItemDetails } from '../components/ItemDetails'
+import { ItemCard } from '../src/components/ItemCard'
+import { ItemSelect } from '../src/components/ItemSelect'
+import { ItemDetails } from '../src/components/ItemDetails'
 
 
 // const url = '/api/graphql'
