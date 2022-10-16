@@ -6,12 +6,12 @@ return (
 	<>
 		<style jsx>{`
 			.card {
-				padding: 2rem;
 				border-width: 2px;
 				border-style: solid;
 				border-radius: 0.5rem;
 				width: 300px;
-				height: 200px;
+				height: 300px;
+				background-color: #CCCCCC;
 			}
 
 			.title {
@@ -19,12 +19,16 @@ return (
 				color: #FFFFFF;
 				text-shadow: black 0.2em 0.2em 0.2em;
 			}
+
+			.logo {
+				height: 60%;
+			}
 		`}</style>
 
 		<div className="card">
 			<h2 className="title">{contractor.companyName}</h2>
 			<p>email: {contractor.email}</p>
-			<img src={"data:" + contractor.imgFormat + ", " + contractor.logoImage} alt={contractor.companyName}></img>
+			<img className="logo" src={"data:" + contractor.imgFormat + ", " + contractor.logoImage} alt={contractor.companyName}></img>
 		</div>
 	</>
 )
