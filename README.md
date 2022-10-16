@@ -1,5 +1,5 @@
 # Invitation For Bid
-Invitation For Bid (IFB) using Next.js, GraphQL, Prisma and SqlServer
+Invitation For Bid (IFB) using Next.js, GraphQL and Prisma
 
 This project includes:
 - Item and contractor management
