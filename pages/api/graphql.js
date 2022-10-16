@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server-micro'
-import { typeDefs, resolvers } from '../../src/models/items'
+import { typeDefs, resolvers } from '../../src/models/all'
 
 
 const apolloServer = new ApolloServer({

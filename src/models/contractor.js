@@ -8,6 +8,8 @@ type Contractor {
     companyName: String!
     email: String!
     contactPerson: String
+    logoImage: String
+    imgFormat: String
 }
 type Query {
     allContractors: [Contractor!]!
