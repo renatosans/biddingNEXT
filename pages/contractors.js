@@ -18,7 +18,7 @@ const query = `{
 }
 `
 
-export default function Home() {
+export default function Contractors() {
   const { data: companies, error, isValidating, mutate } = useSWR(query, fetcher2)
 
   const responsive = {
