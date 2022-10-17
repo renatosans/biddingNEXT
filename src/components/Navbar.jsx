@@ -31,14 +31,14 @@ export const Navbar = () => {
 
 			.navitem:hover {
 				background: #ddd;
-				color: black;					
+				color: black;
 			}
 		`}</style>
 
 		<nav className="navbar">
 			<ul className="menu">
 				<li className="navitem" ><Link href="/">Home</Link></li>
-				<li className="navitem" ><Link href="/items">Items</Link></li>
+				<li className="navitem" ><Link href="/">Items</Link></li>
 				<li className="navitem" ><Link href="/contractors">Contractors</Link></li>
 			</ul>
 		</nav>
