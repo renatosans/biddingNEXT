@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { fetcher2 } from '../src/utils/defaults'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { Layout } from '../src/components/Layout';
+import { Layout } from '../src/components/Layout'
 import { ContractorCard } from '../src/components/ContractorCard'
 import { ContractorSelect } from '../src/components/ContractorSelect'
 

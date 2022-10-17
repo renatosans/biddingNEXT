@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { fetcher2 } from '../src/utils/defaults'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import { Layout } from '../src/components/Layout';
+import { Layout } from '../src/components/Layout'
 import { ItemCard } from '../src/components/ItemCard'
 import { ItemSelect } from '../src/components/ItemSelect'
 import { ItemDetails } from '../src/components/ItemDetails'
