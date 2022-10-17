@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { fetcher2 } from '../src/utils/defaults'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+import { Layout } from '../src/components/Layout';
 import { ItemCard } from '../src/components/ItemCard'
 import { ItemSelect } from '../src/components/ItemSelect'
 import { ItemDetails } from '../src/components/ItemDetails'
@@ -41,7 +42,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <Layout>
       <div id="container"></div>
       <div>
         <p><b>FIQUE A VONTADE PARA RETIRAR DE NOSSO SITE OS SERVIÇOS QUE ACHAR INCONVENIENTE</b></p>
@@ -64,6 +65,6 @@ export default function Home() {
         <p>No items found</p>
       }
       </div>
-    </>
+    </Layout>
   )
 }
