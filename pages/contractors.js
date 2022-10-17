@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { Layout } from '../src/components/Layout';
 import { ContractorCard } from '../src/components/ContractorCard'
+import { ContractorSelect } from '../src/components/ContractorSelect'
 
 
 // const url = '/api/graphql'
@@ -18,7 +19,7 @@ const query = `{
 `
 
 export default function Home() {
-  const { data: companies } = useSWR(query, fetcher2)
+  const { data: companies, error, isValidating, mutate } = useSWR(query, fetcher2)
 
   const responsive = {
     desktop: {
@@ -35,12 +36,7 @@ export default function Home() {
     <Layout>
       <div>
         <p><b>REMOVA AS EMPRESAS QUE NÃO PARTICIPARÃO NA LICITAÇÃO</b></p>
-        <select>
-            <option>Company 1</option>
-            <option>Company 2</option>
-            <option>Company 3</option>
-        </select>
-        <button>Retirar do Site</button>
+        <ContractorSelect parentRef={{mutate}} ></ContractorSelect>
       </div>
 
       <div>{

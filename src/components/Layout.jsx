@@ -6,7 +6,7 @@ export const Layout = ({ children }) => {
 		<>
 			<style jsx>{`
 				.layout {
-					margin-top: 3.25rem; 
+					margin-top: 6.25rem; 
 					margin-left: 1.25rem;
 					margin-right: 1.25rem;
 					width: 90%;
