@@ -38,7 +38,7 @@ export const Navbar = () => {
 		<nav className="navbar">
 			<ul className="menu">
 				<li className="navitem" ><Link href="/">Home</Link></li>
-				<li className="navitem" ><Link href="/">Items</Link></li>
+				<li className="navitem" ><Link href="/items">Items</Link></li>
 				<li className="navitem" ><Link href="/contractors">Contractors</Link></li>
 			</ul>
 		</nav>

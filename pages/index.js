@@ -1,70 +1,12 @@
-import useSWR from 'swr'
-import { useState } from 'react'
-import { fetcher2 } from '../src/utils/defaults'
-import Carousel from 'react-multi-carousel'
-import 'react-multi-carousel/lib/styles.css'
 import { Layout } from '../src/components/Layout'
-import { ItemCard } from '../src/components/ItemCard'
-import { ItemSelect } from '../src/components/ItemSelect'
-import { ItemDetails } from '../src/components/ItemDetails'
 
-
-// const url = '/api/graphql'
-const query = `{
-    allItems {
-      name
-      description
-      avgPrice
-      image
-      banner
-      unitOfMeasurement
-    }
-}
-`
 
 export default function Home() {
-  const { data: inventory, error, isValidating, mutate } = useSWR(query, fetcher2)
-  const [currentItem, setCurrentItem] = useState(0);
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  }
-
-  const handleClick = (itemIndex) => {
-    setCurrentItem(itemIndex)
-  }
-
   return (
     <Layout>
-      <div id="container"></div>
-      <div>
-        <p><b>FIQUE A VONTADE PARA RETIRAR DE NOSSO SITE OS SERVIÇOS QUE ACHAR INCONVENIENTE</b></p>
-        <ItemSelect parentRef={{mutate}} ></ItemSelect>
-      </div>
-
-      <div>{
-        (inventory) ?
-        <Carousel responsive={responsive}>{  inventory.data.allItems.map(
-            (item, index) => <ItemCard item={item} index={index} parentRef={{handleClick}} key={item.id} />
-        )}
-        </Carousel> :
-        <p>No items found</p>
-      }
-      </div>
-
-      <div>{
-        (inventory) ?
-        <ItemDetails item={inventory.data.allItems[currentItem]} /> :
-        <p>No items found</p>
-      }
-      </div>
+      <h1>HOME</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum viverra sem, et consectetur enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer ultricies condimentum turpis at ultrices. Praesent et libero ex. Aliquam semper mollis lacus vel finibus. Donec purus massa, laoreet eu rutrum id, vehicula nec purus. Maecenas erat velit, dignissim eu aliquam ac, fringilla quis odio. Integer augue diam, condimentum vel accumsan a, ultricies eget lacus. Nulla facilisi.</p>
+      <p>Nulla vel condimentum arcu. Pellentesque tincidunt vestibulum erat, in auctor felis convallis ac. Etiam aliquet at massa et porta. Proin orci nisi, placerat a quam in, gravida luctus ligula. Nulla facilisi. Ut fermentum malesuada neque id cursus. Donec gravida pharetra nunc non tempor. Sed dignissim faucibus orci, eget consequat mi ultrices at.</p>
     </Layout>
   )
 }
