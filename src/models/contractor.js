@@ -13,11 +13,12 @@ type Contractor {
 }
 
 extend type Query {
+    getContractor(id: Int!): Contractor!
     allContractors: [Contractor!]!
 }
 
 extend type Mutation {
-  # createContractor(id: ID!, companyName: String!, email: String!): Contractor!
+  createContractor(companyName: String!, email: String!, contactPerson: String!, logoImage: String, imgFormat: String): Int
   deleteContractor(id: Int!): Int
   # updateContractor(id: Int!): Int
 }
@@ -25,12 +26,19 @@ extend type Mutation {
 
 const resolvers = {
   Query: {
+    getContractor: (parent, args) => {
+      return prisma.contractor.findUnique({ where: { id: parseInt(args.id) } })
+    },
     allContractors: () => {
       return prisma.contractor.findMany()
     }
   },
 
   Mutation: {
+    createContractor: async (parent, args) => {
+      await prisma.contractor.create({data: args})
+      return args.id;
+    },
     deleteContractor: async (parent, args) => {
       await prisma.contractor.delete({
         where: { id: args.id },
