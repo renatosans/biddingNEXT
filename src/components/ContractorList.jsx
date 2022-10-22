@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { request } from '../utils/request';
 import { mutation } from '../utils/mutation';
 import { notification } from '../utils/defaults';
+import ClickableField from './ClickableField';
 import ConfirmationDialog from './ConfirmationDialog';
 
 
@@ -27,7 +28,8 @@ export default function ContractorList() {
 
     const columns = [
 		{ field: 'id', headerName: 'Id', width: 80 },
-		{ field: 'companyName', headerName: 'Company Name', width: 250 },
+		{ field: 'companyName', headerName: 'Company Name', width: 250, renderCell: (params) => 
+			<ClickableField rowId={params.row.id} label={params.row.companyName} parentRef={{ getContractors }}></ClickableField> },
 		{ field: 'email', headerName: 'E-mail', width: 250 },
 		{ field: 'contactPerson', headerName: 'Contact Person', width: 250 }
 	]
