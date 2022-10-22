@@ -10,7 +10,7 @@ export const Layout = ({ children }) => {
 					margin-left: 1.25rem;
 					margin-right: 1.25rem;
 					width: 90%;
-					height: 70%;
+					height: 30rem;
 				}
 			`}</style>
 
