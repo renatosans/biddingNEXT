@@ -17,7 +17,7 @@ export default function ContractorList() {
 	const getContractors = async () => {
       const returnFields = ['id', 'companyName', 'email', 'contactPerson']
 	  request('allContractors', null, returnFields)
-	  .then((response) => console.log(response))
+	  .then((response) => setContractors(response.data.data.allContractors))
 	  .catch((error) => console.log(error))
 	}
 
@@ -72,8 +72,7 @@ export default function ContractorList() {
 		<Button variant="outlined" startIcon={<AddCircleIcon />} onClick={insertContractor} >Novo</Button>
 
 		<DataGrid columns={columns} rows={contractors} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection
-			onSelectionModelChange={setSelectionModel} selectionModel={selectionModel} /> :
-
+			onSelectionModelChange={setSelectionModel} selectionModel={selectionModel} />
 	</>
 	)
 }

@@ -54,7 +54,7 @@ export const GroupManagement = () => {
             <p className="rowElement">Categoria: </p>
             <select className="rowElement" onChange={(e) => setSelected(e.target.value)} >{
                 itemGroups ?
-                itemGroups.data.allItemGroups.map( (group) => <option value={group.id}>{group.name}</option> ) :
+                itemGroups.data.allItemGroups.map( (group) => <option value={group.id} key={group.id} >{group.name}</option> ) :
                 <option value={0} key={0} >No item group found</option>
             }
             </select>

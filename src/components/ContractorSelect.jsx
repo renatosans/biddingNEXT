@@ -31,7 +31,7 @@ export const ContractorSelect = ({parentRef}) => {
         <>
             <select onChange={(e) => setSelected(e.target.value)} >{
                 companies ?
-                companies.data.allContractors.map( (opt) => <option value={opt.id}>{opt.companyName}</option> ) :
+                companies.data.allContractors.map( (opt) => <option value={opt.id} key={opt.id}>{opt.companyName}</option> ) :
                 <option value={0} key={0} >No contractors found</option>
             }
             </select>

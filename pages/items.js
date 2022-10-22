@@ -23,7 +23,7 @@ const query = `{
 }
 `
 
-export default function Home() {
+export default function Items() {
   const { data: inventory, error, isValidating, mutate } = useSWR(query, fetcher2)
   const [currentItem, setCurrentItem] = useState(0);
 

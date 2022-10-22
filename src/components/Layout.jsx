@@ -15,6 +15,7 @@ export const Layout = ({ children }) => {
 			`}</style>
 
 			<Navbar />
+			<div id="panel"></div>
 
 			<div className="layout">{children}</div>
 		</>
