@@ -12,12 +12,21 @@ import ClickableField from './ClickableField';
 import ConfirmationDialog from './ConfirmationDialog';
 
 
+// const url = '/api/graphql'
+const query = `
+  allContractors {
+	id
+	companyName
+	email
+	contactPerson
+  }
+`
+
 export default function ContractorList() {
 	const [contractors, setContractors] = useState([]);
 
 	const getContractors = async () => {
-      const returnFields = ['id', 'companyName', 'email', 'contactPerson']
-	  request('allContractors', null, returnFields)
+	  request(query)
 	  .then((response) => setContractors(response.data.data.allContractors))
 	  .catch((error) => console.log(error))
 	}
