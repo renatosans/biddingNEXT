@@ -17,7 +17,11 @@ export const GroupManagement = () => {
     const { data: itemGroups, error, isValidating, mutate } = useSWR(query, fetcher2)
 
     const deleteGroup = () => {
-        console.log(selected)
+        mutation(`deleteItemGroup(id: ${parseInt(selected)})`)
+        .then( (response) => {
+            mutate() // atualiza as opções do dropdown
+        })
+        .catch((error) => console.error(error))
     }
 
     const createGroup = () => {

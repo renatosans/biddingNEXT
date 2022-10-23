@@ -14,9 +14,8 @@ extend type Query {
 }
 
 extend type Mutation {
-  createItemGroup(name: String!): ItemGroup
-  # deleteItem(id: Int!): Int
-  # updateItem(id: Int!): Int
+  createItemGroup(name: String): ItemGroup
+  deleteItemGroup(id: Int): Int
 }
 `
 
@@ -32,9 +31,12 @@ const resolvers = {
 
   Mutation: {
     createItemGroup: async (parent, args) => {
-      const { name } = args;
-      const itemGroup = await prisma.itemgroup.create({ data: { name } })
+      const itemGroup = await prisma.itemgroup.create({data: args})
       return itemGroup;
+    },
+    deleteItemGroup: async (parent, args) => {
+      const itemGroup = await prisma.itemgroup.delete({ where: { id: parseInt(args.id) }, })
+      return itemGroup.id;
     },
   }
 }
