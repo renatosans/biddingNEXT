@@ -9,6 +9,7 @@ import { request } from '../utils/request';
 import { mutation } from '../utils/mutation';
 import { notification } from '../utils/defaults';
 import ClickableField from './ClickableField';
+import ContractorForm from './ContractorForm';
 import ConfirmationDialog from './ConfirmationDialog';
 
 
@@ -44,10 +45,10 @@ export default function ContractorList() {
 	]
 
 	function insertContractor() {
-        // const root = ReactDom.createRoot(document.getElementById('panel'));
+        const root = ReactDom.createRoot(document.getElementById('panel'));
 
-        // const contractorForm = React.createElement(ContractorForm, {id: undefined, parentRef: { getContractors } }, null);
-		// root.render(contractorForm);
+        const contractorForm = React.createElement(ContractorForm, {id: undefined, parentRef: { getContractors } }, null);
+		root.render(contractorForm);
 	}
 
 	function deleteContractor() {
